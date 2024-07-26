@@ -19,6 +19,7 @@ type  User {
     created: DateTime
     update: DateTime
     username: String
+    mail: String
     role: Role
 }
 
