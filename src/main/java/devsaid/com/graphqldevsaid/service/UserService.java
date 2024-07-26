@@ -1,6 +1,7 @@
 package devsaid.com.graphqldevsaid.service;
 
 
+import devsaid.com.graphqldevsaid.exception.UserNotFoundException;
 import devsaid.com.graphqldevsaid.model.User;
 import devsaid.com.graphqldevsaid.model.UserRequest;
 import devsaid.com.graphqldevsaid.repository.UserRepository;
@@ -22,7 +23,7 @@ public class UserService {
 
     public User getUserById(Long id){
         return userRepository.findById(id)
-                .orElseThrow (()->new RuntimeException ("user not found"));
+                .orElseThrow (()->new UserNotFoundException ("user not found"));
     }
 
     public User createUser(UserRequest userRequest){
